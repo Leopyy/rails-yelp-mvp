@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+puts 'Creating 10 fake articles...'
+10.times do
+  name = "#{Faker::TvShows::GameOfThrones.character}'s #{Faker::Restaurant.type}"
+  restaurant = Restaurant.new(
+    name: name,
+    address: Faker::TvShows::GameOfThrones.city,
+    phone_number: Faker::PhoneNumber.phone_number,
+    category: ['chinese', 'italian', 'japanese', 'french', 'belgian'].sample
+  )
+  restaurant.save!
+end
+puts 'Finished!'
